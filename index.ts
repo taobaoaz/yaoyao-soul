@@ -21,6 +21,7 @@ import { definePluginEntry } from "openclaw/plugin-sdk/plugin-entry";
 import { PersonaStateMachine } from "./src/utils/persona-state.js";
 import { FeedbackTracker } from "./src/learning/feedback-tracker.js";
 import { registerSoulTools } from "./src/tools/index.js";
+import { registerSoulRecallHook } from "./src/hooks/auto-recall.js";
 
 export default definePluginEntry({
   id: "yaoyao-soul",
@@ -67,11 +68,19 @@ export default definePluginEntry({
         } catch { /* silent observation should never break anything */ }
       });
 
+      // ── Observation append hook: inject latest persona.md observations ──
+      try {
+        registerSoulRecallHook(api, { memoryDir });
+        api.logger.info("[yaoyao-soul] Observation append hook registered");
+      } catch (err: any) {
+        api.logger.warn?.(`[yaoyao-soul] Observation append hook skipped: ${err.message}`);
+      }
+
       // Banner
       const banner = [
         "🖤 ══════════════════════════════════════════",
         "🖤    摇摇 · 灵魂观察层已启动",
-        `🖤    v1.0.0  ·  ${toolCount} Tools  ·  1 Hook`,
+        `🖤    v1.0.0  ·  ${toolCount} Tools  ·  2 Hooks`,
         "🖤    静默观察 · 周期蒸馏 · 不干预对话",
         `🖤    记忆目录: ${memoryDir}`,
         "🖤 ══════════════════════════════════════════",
