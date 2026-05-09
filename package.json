@@ -1,0 +1,57 @@
+{
+  "name": "yaoyao-soul",
+  "version": "1.0.0",
+  "description": "Yaoyao Soul — AI character observation layer. Silent pattern extraction, weekly persona distillation, and emotional understanding without real-time intervention. Works alongside yaoyao-plugin (memory infrastructure).",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist/",
+    "openclaw.plugin.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "yaoyao",
+    "soul",
+    "persona",
+    "emotion",
+    "observation",
+    "character"
+  ],
+  "homepage": "https://github.com/taobaoaz/yaoyao-soul#readme",
+  "author": "Yaoyao",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taobaoaz/yaoyao-soul.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taobaoaz/yaoyao-soul/issues"
+  },
+  "engines": {
+    "node": "^22.0.0"
+  },
+  "private": false,
+  "scripts": {
+    "test": "node --experimental-strip-types --test src/__tests__/*.test.ts"
+  },
+  "openclaw": {
+    "extensions": [
+      "./dist/index.js"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.5.5"
+    }
+  },
+  "dependencies": {},
+  "openclawSecurity": {
+    "disclosure": "SECURITY.md",
+    "dataStorage": "100% local (filesystem only). No telemetry. No analytics.",
+    "dependencies": "Zero external npm dependencies. Only Node.js built-in modules."
+  }
+}

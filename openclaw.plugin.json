@@ -1,0 +1,8 @@
+{
+  "id": "yaoyao-soul",
+  "name": "Yaoyao Soul",
+  "description": "AI character observation layer — silent pattern extraction, weekly persona distillation, emotional understanding without real-time intervention. Companion to yaoyao-plugin.",
+  "version": "1.0.0",
+  "author": "Yaoyao",
+  "main": "dist/index.js"
+}
